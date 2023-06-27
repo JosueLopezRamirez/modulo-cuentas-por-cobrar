@@ -9,8 +9,7 @@ import { withTranslation } from "react-i18next";
 
 import { connect } from "react-redux";
 
-const Navbar = props => {
-
+const Navbar = (props) => {
   const [dashboard, setdashboard] = useState(false);
   const [ui, setui] = useState(false);
   const [app, setapp] = useState(false);
@@ -91,11 +90,11 @@ const Navbar = props => {
                 <li className="nav-item dropdown">
                   <Link
                     className="nav-link  arrow-none"
-                    onClick={e => {
+                    onClick={(e) => {
                       e.preventDefault();
                       setdashboard(!dashboard);
                     }}
-                    to="/dashboard"
+                    to="/clients"
                   >
                     <i className="bx bx-home-circle me-2"></i>
                     {props.t("Dashboard")} {props.menuOpen}
@@ -104,7 +103,7 @@ const Navbar = props => {
                   <div
                     className={classname("dropdown-menu", { show: dashboard })}
                   >
-                    <Link to="/dashboard" className="dropdown-item">
+                    <Link to="/clients" className="dropdown-item">
                       {props.t("Default")}
                     </Link>
                     <Link to="/dashboard-saas" className="dropdown-item">
@@ -122,7 +121,7 @@ const Navbar = props => {
                 <li className="nav-item dropdown">
                   <Link
                     to="/#"
-                    onClick={e => {
+                    onClick={(e) => {
                       e.preventDefault();
                       setui(!ui);
                     }}
@@ -217,7 +216,10 @@ const Navbar = props => {
                           <Link to="/ui-rating" className="dropdown-item">
                             {props.t("Rating")}
                           </Link>
-                          <Link to="/ui-notifications" className="dropdown-item">
+                          <Link
+                            to="/ui-notifications"
+                            className="dropdown-item"
+                          >
                             {props.t("Notifications")}
                           </Link>
                           <Link to="/ui-breadcrumb" className="dropdown-item">
@@ -232,7 +234,7 @@ const Navbar = props => {
                 <li className="nav-item dropdown">
                   <Link
                     to="/#"
-                    onClick={e => {
+                    onClick={(e) => {
                       e.preventDefault();
                       setapp(!app);
                     }}
@@ -255,7 +257,7 @@ const Navbar = props => {
                       <Link
                         to="/#"
                         className="dropdown-item  arrow-none"
-                        onClick={e => {
+                        onClick={(e) => {
                           e.preventDefault();
                           setemail(!email);
                         }}
@@ -275,7 +277,7 @@ const Navbar = props => {
                           <Link
                             className="dropdown-item  arrow-none"
                             to="/#"
-                            onClick={e => {
+                            onClick={(e) => {
                               e.preventDefault();
                               setemail(!email);
                             }}
@@ -314,7 +316,7 @@ const Navbar = props => {
                       <Link
                         to="/#"
                         className="dropdown-item  arrow-none"
-                        onClick={e => {
+                        onClick={(e) => {
                           e.preventDefault();
                           setecommerce(!ecommerce);
                         }}
@@ -327,7 +329,10 @@ const Navbar = props => {
                           show: ecommerce,
                         })}
                       >
-                        <Link to="/ecommerce-products" className="dropdown-item">
+                        <Link
+                          to="/ecommerce-products"
+                          className="dropdown-item"
+                        >
                           {props.t("Products")}
                         </Link>
                         <Link
@@ -348,7 +353,10 @@ const Navbar = props => {
                         <Link to="/ecommerce-cart" className="dropdown-item">
                           {props.t("Cart")}
                         </Link>
-                        <Link to="/ecommerce-checkout" className="dropdown-item">
+                        <Link
+                          to="/ecommerce-checkout"
+                          className="dropdown-item"
+                        >
                           {props.t("Checkout")}
                         </Link>
                         <Link to="/ecommerce-shops" className="dropdown-item">
@@ -367,7 +375,7 @@ const Navbar = props => {
                       <Link
                         to="/#"
                         className="dropdown-item  arrow-none"
-                        onClick={e => {
+                        onClick={(e) => {
                           e.preventDefault();
                           setcrypto(!crypto);
                         }}
@@ -398,7 +406,10 @@ const Navbar = props => {
                         >
                           {props.t("KYC Application")}
                         </Link>
-                        <Link to="/crypto-ico-landing" className="dropdown-item">
+                        <Link
+                          to="/crypto-ico-landing"
+                          className="dropdown-item"
+                        >
                           {props.t("ICO Landing")}
                         </Link>
                       </div>
@@ -408,7 +419,7 @@ const Navbar = props => {
                       <Link
                         to="/#"
                         className="dropdown-item  arrow-none"
-                        onClick={e => {
+                        onClick={(e) => {
                           e.preventDefault();
                           setproject(!project);
                         }}
@@ -438,7 +449,7 @@ const Navbar = props => {
                       <Link
                         to="/#"
                         className="dropdown-item  arrow-none"
-                        onClick={e => {
+                        onClick={(e) => {
                           e.preventDefault();
                           settask(!task);
                         }}
@@ -460,7 +471,7 @@ const Navbar = props => {
                       <Link
                         to="/#"
                         className="dropdown-item  arrow-none"
-                        onClick={e => {
+                        onClick={(e) => {
                           e.preventDefault();
                           setcontact(!contact);
                         }}
@@ -487,7 +498,7 @@ const Navbar = props => {
                       <Link
                         to="/#"
                         className="dropdown-item  arrow-none"
-                        onClick={e => {
+                        onClick={(e) => {
                           e.preventDefault();
                           setBlog(!blog);
                         }}
@@ -517,7 +528,7 @@ const Navbar = props => {
                   <Link
                     to="/#"
                     className="nav-link  arrow-none"
-                    onClick={e => {
+                    onClick={(e) => {
                       e.preventDefault();
                       setcomponent(!component);
                     }}
@@ -532,7 +543,7 @@ const Navbar = props => {
                       <Link
                         to="/#"
                         className="dropdown-item  arrow-none"
-                        onClick={e => {
+                        onClick={(e) => {
                           e.preventDefault();
                           setform(!form);
                         }}
@@ -581,7 +592,7 @@ const Navbar = props => {
                       <Link
                         to="/#"
                         className="dropdown-item  arrow-none"
-                        onClick={e => {
+                        onClick={(e) => {
                           e.preventDefault();
                           settable(!table);
                         }}
@@ -612,7 +623,7 @@ const Navbar = props => {
                       <Link
                         to="/#"
                         className="dropdown-item  arrow-none"
-                        onClick={e => {
+                        onClick={(e) => {
                           e.preventDefault();
                           setchart(!chart);
                         }}
@@ -650,7 +661,7 @@ const Navbar = props => {
                       <Link
                         to="/#"
                         className="dropdown-item  arrow-none"
-                        onClick={e => {
+                        onClick={(e) => {
                           e.preventDefault();
                           seticon(!icon);
                         }}
@@ -681,7 +692,7 @@ const Navbar = props => {
                       <Link
                         to="/#"
                         className="dropdown-item  arrow-none"
-                        onClick={e => {
+                        onClick={(e) => {
                           e.preventDefault();
                           setmap(!map);
                         }}
@@ -709,7 +720,7 @@ const Navbar = props => {
                   <Link
                     className="nav-link  arrow-none"
                     to="/#"
-                    onClick={e => {
+                    onClick={(e) => {
                       e.preventDefault();
                       setextra(!extra);
                     }}
@@ -722,7 +733,7 @@ const Navbar = props => {
                       <Link
                         to="/#"
                         className="dropdown-item  arrow-none"
-                        onClick={e => {
+                        onClick={(e) => {
                           e.preventDefault();
                           setinvoice(!invoice);
                         }}
@@ -747,7 +758,7 @@ const Navbar = props => {
                       <Link
                         to="/#"
                         className="dropdown-item  arrow-none"
-                        onClick={e => {
+                        onClick={(e) => {
                           e.preventDefault();
                           setauth(!auth);
                         }}
@@ -779,7 +790,10 @@ const Navbar = props => {
                         <Link to="/auth-lock-screen" className="dropdown-item">
                           {props.t("Lock Screen")}
                         </Link>
-                        <Link to="/auth-lock-screen-2" className="dropdown-item">
+                        <Link
+                          to="/auth-lock-screen-2"
+                          className="dropdown-item"
+                        >
                           {props.t("Lock Screen 2")}
                         </Link>
                         <Link to="/page-confirm-mail" className="dropdown-item">
@@ -822,7 +836,7 @@ const Navbar = props => {
                       <Link
                         className="dropdown-item  arrow-none"
                         to="/#"
-                        onClick={e => {
+                        onClick={(e) => {
                           e.preventDefault();
                           setutility(!utility);
                         }}
@@ -878,7 +892,7 @@ Navbar.propTypes = {
   t: PropTypes.any,
 };
 
-const mapStatetoProps = state => {
+const mapStatetoProps = (state) => {
   const { leftMenu } = state.Layout;
   return { leftMenu };
 };

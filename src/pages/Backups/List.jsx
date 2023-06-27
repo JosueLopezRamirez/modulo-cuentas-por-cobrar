@@ -10,7 +10,7 @@ import { get } from "../../helpers/axiosClient";
 
 const List = () => {
   //meta title
-  document.title = "Basic Tables ";
+  document.title = "Backups";
   const ref = useRef();
 
   const formatData = (data = []) => {
@@ -26,7 +26,7 @@ const List = () => {
     <React.Fragment>
       <div className="page-content">
         <div className="container-fluid">
-          <Breadcrumbs title="Backups" breadcrumbItem="Lista" />
+          <Breadcrumbs title="Respaldo" breadcrumbItem="Lista" />
           <Row>
             <Col lg={12}>
               <Card>

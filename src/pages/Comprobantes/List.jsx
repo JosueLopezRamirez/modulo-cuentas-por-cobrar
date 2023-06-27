@@ -9,7 +9,7 @@ import { CustomTable } from "../../components/Table";
 
 const ClientsList = () => {
   //meta title
-  document.title = "Basic Tables ";
+  document.title = "Comprobantes";
 
   const formatData = (data = []) => {
     return data.map((item) => ({

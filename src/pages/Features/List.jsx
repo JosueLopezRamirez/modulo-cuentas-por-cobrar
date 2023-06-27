@@ -88,6 +88,7 @@ const List = () => {
                   <Row>
                     <Col md="9">
                       <Select
+                        placeholder="Seleccionar usuario"
                         options={options}
                         getOptionValue={(option) => option?.value}
                         getOptionLabel={(option) => option?.label}

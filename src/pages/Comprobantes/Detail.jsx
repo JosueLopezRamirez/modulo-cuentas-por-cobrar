@@ -195,6 +195,7 @@ const ComprobanteDetalle = () => {
                       <Col md="4">
                         <FormSelect
                           name="empresa"
+                          placeholder="Seleccionar un cliente"
                           options={empresas?.map((item) => ({
                             value: item.id,
                             label: item.nombre,

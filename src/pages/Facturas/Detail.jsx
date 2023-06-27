@@ -206,6 +206,7 @@ const FacturaDetalle = () => {
                     <Row>
                       <Col md="4">
                         <FormSelect
+                          placeholder="Seleccionar un cliente"
                           name="empresa"
                           options={empresas.map((item) => ({
                             value: item.id,

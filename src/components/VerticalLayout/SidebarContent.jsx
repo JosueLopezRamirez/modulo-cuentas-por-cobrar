@@ -191,21 +191,21 @@ const SidebarContent = (props) => {
               <li>
                 <Link to="/backups">
                   <i className="bx bxs-data"></i>
-                  <span>{props.t("Backups")}</span>
+                  <span>Respaldo BD</span>
                 </Link>
               </li>
 
               <li>
                 <Link to="/features-flags">
                   <i className="bx bxs-lock-open-alt"></i>
-                  <span>{props.t("Features")}</span>
+                  <span>Funciones (Permisos)</span>
                 </Link>
               </li>
             </AdminWrapper>
             <li>
               <Link to="/help">
                 <i className="bx bx-help-circle"></i>
-                <span>{props.t("Help")}</span>
+                <span>Ayuda</span>
               </Link>
             </li>
           </ul>

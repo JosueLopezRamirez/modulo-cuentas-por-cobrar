@@ -65,7 +65,7 @@ export const CustomTable = forwardRef((props, ref) => {
     } finally {
       setTimeout(() => {
         return fetchData();
-      }, 3000)
+      }, 3000);
     }
   };
 
@@ -243,7 +243,7 @@ export const CustomTable = forwardRef((props, ref) => {
           <div>
             <button className="btn btn-light" onClick={() => fetchData()}>
               <i className="bx bx-refresh bx-spin font-size-16 align-middle me-2"></i>
-              Refresh
+              Recargar
             </button>
           </div>
         </div>

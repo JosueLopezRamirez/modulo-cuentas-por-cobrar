@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import {
-  Dropdown,
-  DropdownToggle,
-  DropdownMenu,
-} from "reactstrap";
+import { Dropdown, DropdownToggle, DropdownMenu } from "reactstrap";
 
 //i18n
 import { withTranslation } from "react-i18next";
@@ -13,11 +9,13 @@ import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
 
 // users
-import user1 from "../../../assets/images/users/avatar-1.jpg";
+import user1 from "../../../assets/images/user.jpeg";
+import useStore from "../../../helpers/store";
 
 const ProfileMenu = (props) => {
   // Declare a new state variable, which we'll call "menu"
   const [menu, setMenu] = useState(false);
+  const { usuario } = useStore();
 
   const [username, setusername] = useState("Admin");
 
@@ -53,7 +51,9 @@ const ProfileMenu = (props) => {
             src={user1}
             alt="Header Avatar"
           />
-          <span className="d-none d-xl-inline-block ms-2 me-1">{username}</span>
+          <span className="d-none d-xl-inline-block ms-2 me-1">
+            {usuario.nombre}
+          </span>
           <i className="mdi mdi-chevron-down d-none d-xl-inline-block" />
         </DropdownToggle>
         <DropdownMenu className="dropdown-menu-end">

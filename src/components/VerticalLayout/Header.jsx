@@ -110,8 +110,10 @@ const Header = (props) => {
               styles={{
                 container: (baseStyles, state) => ({
                   width: 250,
+                  marginLeft: 15,
                 }),
               }}
+              placeholder="Seleccionar cliente"
               options={options}
               getOptionValue={(option) => option?.value}
               getOptionLabel={(option) => option?.label}

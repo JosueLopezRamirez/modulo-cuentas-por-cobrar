@@ -47,8 +47,8 @@ const UsuarioDetalle = () => {
     return (roles || []).map((item) => ({
       value: item.id,
       label: item.nombre,
-    }))
-  }, [roles])
+    }));
+  }, [roles]);
 
   const validation = useFormik({
     enableReinitialize: true,
@@ -152,6 +152,7 @@ const UsuarioDetalle = () => {
                       </Col>
                       <Col md="4">
                         <FormSelect
+                          placeholder="Seleccionar un rol"
                           id="roles-select"
                           name="rol"
                           options={options}
