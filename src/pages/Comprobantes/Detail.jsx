@@ -15,6 +15,7 @@ import { FormDatePicker } from "../../components/FormInputs/DatePicker";
 import { FormSelect } from "../../components/FormInputs/Select";
 import { FormInput } from "../../components/FormInputs/Input";
 import { toast } from "react-toastify";
+import NumericCellEditor from "../../components/renderer/Numeric";
 
 const ComprobanteDetalle = () => {
   const { id } = useParams();
@@ -128,23 +129,6 @@ const ComprobanteDetalle = () => {
     },
   });
 
-  const detailCellRendererParams = useMemo(() => {
-    return {
-      detailGridOptions: {
-        columnDefs: [{ field: "a2" }, { field: "b2" }],
-        defaultColDef: {
-          flex: 1,
-        },
-        groupDefaultExpanded: 1,
-        masterDetail: true,
-        detailRowHeight: 35,
-      },
-      getDetailRowData: (params) => {
-        params.successCallback(params.data.children);
-      },
-    };
-  }, []);
-
   const columns = [
     {
       field: "numeroCuenta",
@@ -161,15 +145,18 @@ const ComprobanteDetalle = () => {
       field: "parcial",
       headerName: "Parcial",
       editable: true,
+      cellEditor: NumericCellEditor,
     },
     {
       field: "debito",
       headerName: "Debe",
       editable: true,
+      cellEditor: NumericCellEditor,
     },
     {
       field: "haber",
       headerName: "Haber",
+      editable: false,
       valueGetter: (params) => params.data.debito - params.data.parcial,
     },
   ];
@@ -245,11 +232,6 @@ const ComprobanteDetalle = () => {
                     height={500}
                     data={gridData}
                     columns={columns}
-                    // gridOptions={{
-                    //     groupDefaultExpanded: 1,
-                    //     masterDetail: true,
-                    //     detailCellRendererParams: detailCellRendererParams
-                    // }}
                   />
                 </CardBody>
               </Card>

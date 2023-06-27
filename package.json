@@ -64,6 +64,7 @@
     "react-dom": "^18.2.0",
     "react-flatpickr": "^3.10.7",
     "react-i18next": "^11.10.0",
+    "react-number-format": "^5.2.2",
     "react-pdf": "^7.1.2",
     "react-perfect-scrollbar": "^1.5.8",
     "react-redux": "^7.2.4",
