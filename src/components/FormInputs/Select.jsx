@@ -12,11 +12,11 @@ export const FormSelect = (props) => {
                 classNamePrefix="react-select-lg"
                 indicatorSeparator={null}
                 options={options}
-                getOptionValue={(option) => option.value}
-                getOptionLabel={(option) => option.label}
+                // getOptionValue={(option) => option.value}
+                // getOptionLabel={(option) => option.label}
                 value={validation.values[name]}
                 onChange={(value) => {
-                    console.log({ value });
+                    console.log({ selectValue: value });
                     validation.setFieldValue(name, value);
                 }}
                 className={
@@ -27,7 +27,7 @@ export const FormSelect = (props) => {
             />
             {!!validation.errors[name] && (
                 <FormFeedback className="d-block">
-                    {validation.errors[name]}
+                    {validation.errors[name].label}
                 </FormFeedback>
             )}
         </FormGroup>

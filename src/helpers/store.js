@@ -75,6 +75,7 @@ const useStore = create(
         set(() => ({ loading: true }));
         try {
           const roles = await get("/roles");
+          console.log({ roles });
           set(() => ({ roles, loading: false }));
         } catch (err) {
           set(() => ({ hasErrors: true, loading: false }));

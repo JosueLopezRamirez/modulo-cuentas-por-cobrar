@@ -204,7 +204,7 @@ const SidebarContent = (props) => {
             </AdminWrapper>
             <li>
               <Link to="/help">
-                <i class="bx bx-help-circle"></i>
+                <i className="bx bx-help-circle"></i>
                 <span>{props.t("Help")}</span>
               </Link>
             </li>

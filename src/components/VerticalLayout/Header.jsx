@@ -96,7 +96,7 @@ const Header = (props) => {
               </Link>
             </div>
 
-            <button
+            {/* <button
               type="button"
               onClick={() => {
                 tToggle();
@@ -105,7 +105,7 @@ const Header = (props) => {
               id="vertical-menu-btn"
             >
               <i className="fa fa-fw fa-bars" />
-            </button>
+            </button> */}
             <Select
               styles={{
                 container: (baseStyles, state) => ({

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import {
   Row,
   Col,
@@ -43,6 +43,13 @@ const UsuarioDetalle = () => {
     validation.setFieldValue("rol", { label: rol.nombre, value: rol.id });
   }, [id]);
 
+  const options = useMemo(() => {
+    return (roles || []).map((item) => ({
+      value: item.id,
+      label: item.nombre,
+    }))
+  }, [roles])
+
   const validation = useFormik({
     enableReinitialize: true,
     initialValues: {
@@ -61,8 +68,8 @@ const UsuarioDetalle = () => {
         .email()
         .required("Por favor ingresar una correo valido"),
       rol: Yup.object({
-        label: Yup.string().required(),
-        value: Yup.string().required(),
+        label: Yup.string().required("Por favor seleccione un rol"),
+        value: Yup.string().required("Por favor seleccione un rol"),
       }).required(),
     }),
     onSubmit: async (values) => {
@@ -147,10 +154,7 @@ const UsuarioDetalle = () => {
                         <FormSelect
                           id="roles-select"
                           name="rol"
-                          options={roles.map((item) => ({
-                            value: item.id,
-                            label: item.nombre,
-                          }))}
+                          options={options}
                           label="Rol"
                           validation={validation}
                         />

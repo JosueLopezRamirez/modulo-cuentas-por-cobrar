@@ -18,6 +18,7 @@ import { useHistory } from "react-router-dom";
 import { FeatureFlag } from "../FeatureFlag";
 import useStore from "../../helpers/store";
 import PropTypes from "prop-types";
+import { toast } from "react-toastify";
 
 const { Column, HeaderCell, Cell } = Table;
 let interval;
@@ -48,24 +49,24 @@ export const CustomTable = forwardRef((props, ref) => {
   const onDelete = async (rowData) => {
     try {
       await del(`${endpoint}/${rowData.id}`);
+      toast.success("Registro borrado exitosamente!");
       return fetchData();
-    } catch (error) {}
+    } catch (error) {
+      toast.error("Error al borrar registro");
+    }
   };
 
   const onRestore = async (rowData) => {
     try {
       await get(`shared/db-restore/${rowData.id}`);
-    } catch (error) {}
-  };
-
-  const downloadPdf = async (rowData) => {
-    try {
-      return get(`${endpoint}/generate-report/${rowData.id}`, {
-        headers: {
-          "Content-Type": "application/pdf",
-        },
-      });
-    } catch (error) {}
+      toast.success("Base de datos restaurada exitosamente!");
+    } catch (error) {
+      toast.error("Error al restaurar la base de datos");
+    } finally {
+      setTimeout(() => {
+        return fetchData();
+      }, 3000)
+    }
   };
 
   const ActionCell = ({ rowData, dataKey, ...props }) => {
@@ -116,7 +117,6 @@ export const CustomTable = forwardRef((props, ref) => {
             icon={<FilePdfIcon />}
             href={`${API_URL}${endpoint}/generate-report/${rowData.id}`}
             target="_blank"
-            // onClick={() => downloadPdf(rowData)}
           />
         </div>
 
