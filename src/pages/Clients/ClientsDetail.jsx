@@ -25,6 +25,9 @@ import { get, patch, post } from "../../helpers/axiosClient";
 import useStore from "../../helpers/store";
 import { toast } from "react-toastify";
 
+const telefonoRegex = /^(\+505)?(\d{8}|2\d{7})$/;
+const rucRegex = /^(\d{3}-\d{9}|\d{3}-\d{6}-\d{4})$/;
+
 const NewClient = () => {
   const { id } = useParams();
   const history = useHistory();
@@ -53,10 +56,15 @@ const NewClient = () => {
     validationSchema: Yup.object({
       nombre: Yup.string().required("Por favor ingresa el nombre del cliente"),
       descripcion: Yup.string().required("Por favor ingresa una descripcion"),
-      telefono: Yup.string().required(
-        "Por favor ingresa un numero de telefono valido"
-      ),
-      ruc: Yup.string().required("Por favor ingresa un numero ruc valido"),
+      telefono: Yup.string()
+        .matches(telefonoRegex, "Número de teléfono inválido")
+        .required("Por favor ingresa un numero de telefono valido"),
+      ruc: Yup.string()
+        .matches(
+          rucRegex,
+          "Debe seguir uno de los siguientes formato ###-######### o ###-######-####"
+        )
+        .required("Por favor ingresa un numero ruc valido"),
     }),
     onSubmit: async (values) => {
       try {
@@ -118,7 +126,7 @@ const NewClient = () => {
                           className="mb-3"
                           name="ruc"
                           label="Numero Ruc"
-                          placeholder="Ej: M123817312396"
+                          placeholder="Ej: 152-589632-1477"
                           validation={validation}
                         />
                       </Col>
@@ -128,7 +136,7 @@ const NewClient = () => {
                           className="mb-3"
                           name="telefono"
                           label="Numero Telefonico"
-                          placeholder="Ej: 22252635"
+                          placeholder="Ej: +50522252635"
                           validation={validation}
                         />
                       </Col>
